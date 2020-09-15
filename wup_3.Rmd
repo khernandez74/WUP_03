@@ -1,6 +1,6 @@
 ---
 title: "Alcohol vs Seat choice"
-author: "Your Name"
+author: "Karen Hernandez"
 date: "Fall 2020"
 output: html_document
 ---
@@ -37,7 +37,21 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 
 ## Numerical Summarys 
 
+```{r}
+favstats(alcohol~Seat,data=davisdata)
+```
+
+
 ## Inferential Tests
+
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+```{r}
+plot(TukeyHSD(model1))
+```
 
 ## Conclusions
 
