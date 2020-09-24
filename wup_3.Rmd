@@ -43,6 +43,7 @@ favstats(alcohol~Seat,data=davisdata)
 ```
 
 
+
 ## Inferential Tests
 
 ```{r}
