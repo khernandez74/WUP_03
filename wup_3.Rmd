@@ -17,6 +17,9 @@ davisdata <- read.csv(file="UCDavis.csv")
 ## Our Goal is to answer this question Is there a difference between the alcohol consumed between the row
 ## you choose to sit in??
 
+$H_0$: There is no difference in the average alchohol comsumption base on where someone sits  
+$H_A$: There is at least one difference among the two group combination 
+
 ## Now with ggplot - first select the basic data
 
 ```{r}
@@ -27,13 +30,16 @@ basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 ```{r}
 basicCN + geom_boxplot()
 ```
-  
+
+People in the back are drinking more
+
   
 ### get fancy  
 
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
+
 people in the back are drinking more by 4
 
 ## Numerical Summarys 
@@ -57,4 +63,5 @@ plot(TukeyHSD(model1))
 
 ## Conclusions
 
-
+Since the P avalue is .000116 < 0.05 we reject the null hypothesis. 
+TukeyHSD test shows that the difference in average consumptin between the middle back and front back rows is significallly different than 0. That show that the guys in the back drink on average more than anybody else. 
